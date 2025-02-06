@@ -9,9 +9,13 @@ from PIL import Image
 from langchain.prompts import PromptTemplate
 from langchain_groq import ChatGroq
 from langchain.schema import SystemMessage, HumanMessage
+from dotenv import load_dotenv
 
 # Initialize LangChain with Groq
-groq = ChatGroq(model="llama-3.3-70b-versatile", api_key="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")
+
+load_dotenv()
+
+groq = ChatGroq(model="llama-3.3-70b-versatile", api_key=os.getenv("API_KEY"))
 
 # Prompt template for analysis
 prompt_template = PromptTemplate(
